@@ -1,0 +1,3 @@
+Put your voice recording in this folder and name it exactly: love-voice-note.mp3
+The website's audio player is already connected to audio/love-voice-note.mp3.
+If your recording is .m4a or .wav, either convert it to MP3 or update the source filename and MIME type in index.html.
