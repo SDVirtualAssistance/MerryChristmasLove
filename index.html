@@ -135,10 +135,12 @@ Still you. Still us. Still choosing you. ❤️</p></div></div>
   </div>
 </div>
 <div class="letters">
-  <button class="letter" data-title="When you miss me" data-audio="audio/when-you-miss-me.mp3" data-message="Close your eyes for a second and imagine the biggest hug. No matter how far apart we are, there is a part of me that is always right beside you. I can't wait to see you again."><span>💌</span><h3>When you miss me</h3><p>A hug, folded into a letter.</p></button>
-  <button class="letter" data-title="When the day feels heavy" data-audio="audio/when-the-day-feels-heavy.mp3" data-message="You don't have to be sunshine every day. You are allowed to rest, to feel, and to take your time. I believe in you, I am proud of you, and you never have to face a hard day alone."><span>🌙</span><h3>When the day feels heavy</h3><p>A gentle reminder that you're loved.</p></button>
-  <button class="letter" data-title="When you need a smile" data-audio="audio/when-you-need-a-smile.mp3" data-message="Tiny reminder: you are ridiculously adorable, your smile is one of my favorite sights, and I am probably thinking about you right now. Yes, again."><span>🌷</span><h3>When you need a smile</h3><p>A little dose of happy.</p></button>
-  <button class="letter" data-title="Just because" data-audio="audio/just-because.mp3" data-message="No special occasion. No big reason. I just wanted you to know that loving you is one of my favorite parts of being me. Thank you for being you, Love."><span>✨</span><h3>Just because</h3><p>Because you deserve to hear it.</p></button>
+  <button class="letter" data-title="When you miss me" data-audio="audio/when-you-miss-me.mp3" data-message="Hi, Love. If you're listening to this, I guess you're missing me right now. I wish I could be beside you, holding your hand, hugging you tightly, and giving you little kisses until you forget how much you missed me. But even if I'm not physically there, I hope you remember that you're always in my thoughts. Distance or busy days will never change how much you mean to me. I hope this recording makes you feel a little closer to me. Imagine me wrapping my arms around you right now. I love you so much, Love. And when we see each other again, I'm giving you the longest hug ever.
+
+"><span>💌</span><h3>When you miss me</h3><p>A hug, folded into a letter.</p></button>
+  <button class="letter" data-title="When the day feels heavy" data-audio="audio/when-the-day-feels-heavy.mp3" data-message="Hey, Love. Take a deep breath for me, okay? I know some days can be exhausting. There might be moments when everything feels overwhelming, when things don't go as planned, or when you feel like you're carrying too much. But I want you to remember that you don't have to figure everything out on your own. I'm here. You can talk to me, cry to me, or even stay quiet with me. You don't always have to be strong. It's okay to rest, it's okay to feel tired, and it's okay to take things one step at a time. I believe in you, and I'll always be proud of you. We're a team, Love. It's you and me against the problems, never against each other. I love you, and I'm not going anywhere."><span>🌙</span><h3>When the day feels heavy</h3><p>A gentle reminder that you're loved.</p></button>
+  <button class="letter" data-title="When you need a smile" data-audio="audio/when-you-need-a-smile.mp3" data-message="HAHAHA! Love, bakit ka sad? Sino ba 'yang nang-aaway sa favorite person ko? Tell me their name. Charot! 😂 But seriously, I hope you're smiling even just a little right now. Remember all our silly moments, our random jokes, our teasing, and all the times we laughed at things that probably weren't even that funny. I hope we never lose that playful side of us. Life is already serious enough, so let's keep finding reasons to laugh together. And if nobody has reminded you today, let me be the one: you're beautiful, adorable, and my favorite person to annoy. So smile na, Love! I love you, you little troublemaker!"><span>🌷</span><h3>When you need a smile</h3><p>A little dose of happy.</p></button>
+  <button class="letter" data-title="Just because" data-audio="audio/just-because.mp3" data-message="I don't need a special occasion to remind you how much I love you. I just want you to know that I'm grateful for you. Grateful that our paths crossed, that a simple connection became something so meaningful, and that I get to experience life with you. We've had beautiful moments, difficult moments, and moments that tested us, but through everything, I still choose you. I'm not promising that everything will always be perfect, but I promise to keep learning, growing, and doing my best for us. I want to build a future where we celebrate each other's victories, support each other's dreams, and face life's challenges hand in hand. Thank you for being part of my life, Love. If I had to choose all over again, I'd still choose you. Always. I love you. ♡"><span>✨</span><h3>Just because</h3><p>Because you deserve to hear it.</p></button>
  </div>
 </section>
 <section class="section wrap" id="memories"><div class="sectionhead"><div class="eyebrow">Our little photo garden 🌷</div><h2>Little moments, forever</h2><p>A few of our real moments, kept like little stars. Tap any photo to see it up close.</p></div>
@@ -206,5 +208,66 @@ document.getElementById('surpriseBtn').onclick=()=>{
     modalCard.insertBefore(gift,modalCard.querySelector('#modalOk'));
   }
 };
+</script>
+
+<!-- Background Music -->
+<audio id="backgroundMusic" autoplay loop>
+  <source src="audio/our-love-song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Music Button -->
+<button id="musicToggle" class="music-toggle">
+  ♡ Play Our Song
+</button>
+
+<style>
+.music-toggle {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 9999;
+  background: linear-gradient(135deg, #f8b6d0, #e88caf);
+  color: white;
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 30px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 5px 18px rgba(210, 110, 155, .25);
+}
+
+.music-toggle:hover {
+  transform: translateY(-2px);
+}
+</style>
+
+<script>
+const music = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicToggle");
+
+// Try to play automatically when the website opens
+music.volume = 0.4;
+
+music.play().then(() => {
+  musicButton.textContent = "♫ Pause Our Song";
+}).catch(() => {
+  // Browser blocked autoplay: wait for her to press Play
+  musicButton.textContent = "♡ Play Our Song";
+});
+
+// Play / Pause button
+musicButton.addEventListener("click", () => {
+  if (music.paused) {
+    music.play().then(() => {
+      musicButton.textContent = "♫ Pause Our Song";
+    }).catch(() => {
+      musicButton.textContent = "♡ Play Our Song";
+    });
+  } else {
+    music.pause();
+    musicButton.textContent = "♡ Play Our Song";
+  }
+});
 </script>
 </body></html>
